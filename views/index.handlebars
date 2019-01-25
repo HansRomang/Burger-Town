@@ -1,0 +1,74 @@
+<div id="wrap">
+	<div class="jumbotron" id="jumbo">
+  <h1>Eat A Burger</h1>
+</div>
+<div class="row">
+	<div class="col-8" id="addburgerdiv">
+  <div id="add" class="section">
+
+    <h2>Add a Burger</h2>
+    <form class="add-form" action="/" method="POST">
+
+      <div class="form-group">
+        <p for="ca">Burger Name:</p>
+        <input type="text" id="ca" name="name">
+      </div>
+
+      <button type="submit" name="action">Add your burger!</button>
+    </form>
+		</div>
+</div>
+  </div>
+
+<div class="row">
+	
+	<div class="col-6">
+
+  <div id="eaten">
+
+    <h2>Devoured</h2>
+
+    <ul>
+      {{#each burgers}}
+        {{#if this.devoured}}
+        <li>
+            {{this.id}}
+            {{this.burger_name}}
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
+
+  </div>
+	</div>
+	<div class="col-6">
+  <div id="notEaten">
+		
+    <h2>Not Yet Devoured</h2>
+
+    <ul>
+      {{#each burgers}}
+
+        {{#unless this.devoured}}
+
+        <li>
+            {{this.id}}
+
+            {{this.burger_name}}
+
+          <form action="/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devour" value="true">
+              <button type="submit">Devour it!</button>
+            </form>
+        </li>
+        {{/unless}}
+      {{/each}}
+    </ul>
+
+  </div>
+	
+	</div>
+	</div>
+
+
+</div>

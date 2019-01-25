@@ -1,0 +1,20 @@
+h1 {
+	text-align: center;
+}
+
+#addburgerdiv {
+	margin: 0px auto;
+}
+
+#eaten {
+	margin-left: 5%
+}
+
+#jumbo {
+	background-color: purple;
+	color: white;
+}
+
+h2 {
+	text-align: center;
+}
